@@ -6,6 +6,7 @@ namespace SvgConverter
     {
         public Func<string,string> NameConverter { get; set; }
         public string Name { get; set; }
+        public string GeneratedName { get; set; }
         public string XamlName { get; set; }
         public string Prefix { get; set; }
         public bool UseComponentResKeys { get; set; }
