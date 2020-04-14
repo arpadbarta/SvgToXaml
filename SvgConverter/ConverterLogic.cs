@@ -575,12 +575,25 @@ namespace SvgConverter
 
         internal static string BuildDrawingGroupName(string elementName, ResKeyInfo resKeyInfo)
         {
-            var rawName = elementName + "DrawingGroup";
+
+            var rawName = resKeyInfo.NameConverter == null ? elementName : resKeyInfo.NameConverter(elementName);
+
+            if (resKeyInfo.AppendElementType)
+            {
+                rawName += "DrawingGroup";
+            }
+
             return BuildResKey(rawName, resKeyInfo);
         }
         internal static string BuildDrawingImageName(string elementName, ResKeyInfo resKeyInfo)
         {
-            var rawName = elementName + "DrawingImage";
+            var rawName = resKeyInfo.NameConverter == null ? elementName : resKeyInfo.NameConverter(elementName);
+
+            if (resKeyInfo.AppendElementType)
+            {
+                rawName += "DrawingImage";
+            }
+
             return BuildResKey(rawName, resKeyInfo);
         }
 
